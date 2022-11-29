@@ -48,7 +48,7 @@ def send_router(message):
         try:
 # по этому пути лежит скрипт сбора информации по статусам девайса
 # читает файл с результатами выполнения скрипта
-            call(["/root/statustotelegram.sh"])
+            call(["/root/pywake/statustotelegram.sh"])
             status = open("/root/statustotelegram.txt", "rb").read()
             bot.send_message(chat_id, status, parse_mode="Markdown")
         except Exception as e:
@@ -62,7 +62,7 @@ def send_wakepc(message):
     if to_check_id == my_user_id:
         try:
     # тут скрипт включения компа
-            call(["/root/powerpc.sh"])
+            call(["/root/pywake/powerpc.sh"])
     # пишем что команда выполнена
             bot.send_message(chat_id, "Команда выполнена!")
         except Exception as e:
