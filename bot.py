@@ -49,7 +49,7 @@ def send_router(message):
 # по этому пути лежит скрипт сбора информации по статусам девайса
 # читает файл с результатами выполнения скрипта
             call(["/root/pywake/statustotelegram.sh"])
-            status = open("/root/statustotelegram.txt", "rb").read()
+            status = open("/root/pywake/statustotelegram.txt", "rb").read()
             bot.send_message(chat_id, status, parse_mode="Markdown")
         except Exception as e:
             logger.exception(str(e))
